@@ -39,11 +39,13 @@ namespace NicoApi {
 
 		/// <summary>
 		/// Thumbnail URL.
+		/// Cannot be null. Can be empty.
 		/// </summary>
 		public string ThumbUrl { get; private set; }
 
 		/// <summary>
 		/// Video title.
+		/// Cannot be null or empty.
 		/// </summary>
 		public string Title { get; private set; }
 

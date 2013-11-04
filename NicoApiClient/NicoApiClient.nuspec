@@ -2,14 +2,15 @@
 <package >
   <metadata>
     <id>NicoApiClient</id>
-    <version>$version$</version>
+    <version>1.0.0.0</version>
     <title>$title$</title>
     <authors>$author$</authors>
     <owners>$author$</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>$description$</description>
+    <description>Client for downloading video metadata from NicoNicoDouga (http://www.nicovideo.jp).</description>
     <releaseNotes>Initial version.</releaseNotes>
     <copyright>Copyright 2013</copyright>
+	<projectUrl>https://github.com/riipah/nicovideo-apiclient-dotnet</projectUrl>
     <tags>NicoNicoDouga API NND</tags>
 	  <dependencies>
 		  <dependency id="HtmlAgilityPack" version="1.4.6.0" />

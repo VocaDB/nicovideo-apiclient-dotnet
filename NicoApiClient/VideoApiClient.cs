@@ -64,7 +64,10 @@ namespace NicoApi {
 		/// Gets video data by NND video Id.
 		/// </summary>
 		/// <param name="id">Video Id (such as sm1234567)</param>
-		/// <param name="getAuthorName">Whether author name should be loaded. This will cause an extra request.</param>
+		/// <param name="getAuthorName">
+		/// Whether author name should be loaded. 
+		/// This will cause an entra query, so specify false if you don't need it.
+		/// </param>
 		/// <returns>Result of the video data parsing. Can be null, if supplied Id was null.</returns>
 		/// <exception cref="NicoApiException">If video data could not be loaded.</exception>
 		public static VideoDataResult GetVideoData(string id, bool getAuthorName) {

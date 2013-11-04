@@ -2,6 +2,9 @@
 
 namespace NicoApi {
 
+	/// <summary>
+	/// Helper methods for parsing NicoNicoDouga URLs.
+	/// </summary>
 	public class NicoUrlHelper {
 
 		private static readonly RegexLinkMatcher[] matchers = new[] {
@@ -11,6 +14,11 @@ namespace NicoApi {
 			new RegexLinkMatcher("www.nicovideo.jp/watch/{0}", @"nico.ms/(\d{6,12})")
 		};
 
+		/// <summary>
+		/// Gets NND video ID by URL.
+		/// </summary>
+		/// <param name="url">NND video URL, for example http://www.nicovideo.jp/watch/sm1234567 </param>
+		/// <returns>Full URL to that video, for example sm1234567. Null if URL is not recognized.</returns>
 		public static string GetIdByUrl(string url) {
 
 			var matcher = matchers.FirstOrDefault(m => m.IsMatch(url));
@@ -22,6 +30,11 @@ namespace NicoApi {
 
 		}
 
+		/// <summary>
+		/// Gets NND URL by video ID.
+		/// </summary>
+		/// <param name="id">NND video ID, for example sm1234567.</param>
+		/// <returns>Full URL to that video, for example http://www.nicovideo.jp/watch/sm1234567 </returns>
 		public string GetUrlById(string id) {
 
 			var matcher = matchers.First();
@@ -29,12 +42,27 @@ namespace NicoApi {
 
 		}
 
+		/// <summary>
+		/// Whether the URL is a valid NicoNicoDouga video URL.
+		/// </summary>
+		/// <param name="url">URL to be tested.</param>
+		/// <returns>True if the URl is recognized, otherwise false.</returns>
 		public bool IsValidFor(string url) {
 
 			return matchers.Any(m => m.IsMatch(url));
 
 		}
 
+		/// <summary>
+		/// Parses a video post by URL.
+		/// </summary>
+		/// <param name="url">NicoNicoDouga video URL, for example http://www.nicovideo.jp/watch/sm1234567 </param>
+		/// <param name="getAuthorName">
+		/// Whether the video uploader name should be loaded. 
+		/// This will cause an entra query, so specify false if you don't need it.
+		/// </param>
+		/// <returns>Result of the parse operation if successful. Cannot be null.</returns>
+		/// <exception cref="NicoApiException">If video data could not be loaded.</exception>
 		public VideoDataResult ParseByUrl(string url, bool getAuthorName) {
 
 			var id = GetIdByUrl(url);
