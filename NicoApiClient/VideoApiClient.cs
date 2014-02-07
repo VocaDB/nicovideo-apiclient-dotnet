@@ -111,6 +111,7 @@ namespace NicoApi {
 
 			var thumbUrl = XmlHelper.GetNodeTextOrEmpty(thumbElem.Element("thumbnail_url"));
 			var userId = XmlHelper.GetNodeTextOrEmpty(thumbElem.Element("user_id"));
+			var author = XmlHelper.GetNodeTextOrEmpty(thumbElem.Element("user_nickname"));
 			var length = ParseLength(XmlHelper.GetNodeTextOrEmpty(thumbElem.Element("length")));
 			var dateElem = thumbElem.Element("first_retrieve");
 			var viewsElem = thumbElem.Element("view_counter");
@@ -118,8 +119,7 @@ namespace NicoApi {
 			var date = DateTime.Parse(XmlHelper.GetNodeTextOrEmpty(dateElem));
 			var views = int.Parse(XmlHelper.GetNodeTextOrEmpty(viewsElem));
 
-			string author = null;
-			if (getAuthorName)
+			if (getAuthorName && string.IsNullOrEmpty(author))
 				author = GetUserName(userId);
 
 			var result = new VideoDataResult(title, thumbUrl, length, date, views, userId, author);
