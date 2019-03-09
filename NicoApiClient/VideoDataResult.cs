@@ -7,53 +7,68 @@ namespace NicoApi {
 	/// </summary>
 	public class VideoDataResult {
 
-		public VideoDataResult(string title, string thumbUrl, int? length, DateTime created, int views, string authorId, string author) {
+		public VideoDataResult(string title, string thumbUrl, int? length, DateTimeOffset? created, int views, string authorId, string author, NicoTag[] tags) {
 			Author = author;
-			Length = length;
+            LengthSeconds = length;
 			AuthorId = authorId;
 			ThumbUrl = thumbUrl;
 			Title = title;
 			Created = created;
 			Views = views;
+            Tags = tags;
 		}
 
 		/// <summary>
 		/// Name of the user who uploaded the video.
 		/// </summary>
-		public string Author { get; private set; }
+		public string Author { get; }
 
 		/// <summary>
 		/// User Id of the user who uploaded the video.
 		/// </summary>
-		public string AuthorId { get; private set; }
+		public string AuthorId { get; }
 
 		/// <summary>
 		/// Date when this video was uploaded.
 		/// </summary>
-		public DateTime Created { get; private set; }
+		public DateTimeOffset? Created { get; }
 
 		/// <summary>
 		/// Video length in seconds.
 		/// </summary>
-		public int? Length { get; private set; }
+		public int? LengthSeconds { get; }
+
+        public NicoTag[] Tags { get; }
 
 		/// <summary>
 		/// Thumbnail URL.
 		/// Cannot be null. Can be empty.
 		/// </summary>
-		public string ThumbUrl { get; private set; }
+		public string ThumbUrl { get; }
 
 		/// <summary>
 		/// Video title.
 		/// Cannot be null or empty.
 		/// </summary>
-		public string Title { get; private set; }
+		public string Title { get; }
 
 		/// <summary>
 		/// Number of views.
 		/// </summary>
-		public int Views { get; private set; }
+		public int Views { get; }
 
 	}
+
+    public class NicoTag {
+
+        public NicoTag(string name, bool locked) {
+            Name = name;
+            IsLocked = locked;
+        }
+
+        public bool IsLocked { get; }
+        public string Name { get; }
+
+    }
 
 }
