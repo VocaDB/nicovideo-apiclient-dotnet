@@ -7,7 +7,7 @@ namespace NicoApi {
 	/// </summary>
 	public class VideoDataResult {
 
-		public VideoDataResult(string title, string thumbUrl, int? length, DateTimeOffset? created, int views, string authorId, string author, NicoTag[] tags) {
+		public VideoDataResult(string title, string thumbUrl, int? length, in DateTimeOffset? created, int views, string authorId, string author, NicoTag[] tags) {
 			Author = author;
             LengthSeconds = length;
 			AuthorId = authorId;

@@ -10,14 +10,24 @@ namespace NicoApi {
     /// </summary>
     public class NicoApiClient {
 
-        public static async Task<VideoDataResult> GetTitleAPIAsync(string id) {
+        public NicoApiClient() { }
+
+        public NicoApiClient(HttpClient httpClient) {
+            _httpClient = httpClient;
+        }
+
+        private readonly HttpClient _httpClient;
+
+        private HttpClient HttpClient => _httpClient ?? new HttpClient();
+
+        public async Task<VideoDataResult> GetTitleAPIAsync(string id) {
 
             var url = string.Format("https://ext.nicovideo.jp/api/getthumbinfo/{0}", id);
 
             NicoResponse nicoResponse;
 
             try {
-                nicoResponse = await XmlRequest.GetXmlObjectAsync<NicoResponse>(url);
+                nicoResponse = await XmlRequest.GetXmlObjectAsync<NicoResponse>(url, HttpClient);
             } catch (HttpRequestException x) {
                 throw new NicoApiException("Unable to query data.", x);
             }

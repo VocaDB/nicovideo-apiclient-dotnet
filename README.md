@@ -6,3 +6,9 @@ nicovideo-apiclient-dotnet
 Currently includes basic methods for NND URL parsing and downloading some video and user information.
 
 Uses [Html Agility Pack](http://htmlagilitypack.codeplex.com/) for HTML parsing.
+
+## Example usage
+
+```csharp
+var response = await new NicoApiClient().ParseByUrlAsync("http://www.nicovideo.jp/watch/sm33779210");
+```
