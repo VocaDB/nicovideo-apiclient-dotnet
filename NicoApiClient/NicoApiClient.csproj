@@ -9,6 +9,7 @@
     <Authors>riipah</Authors>
     <Company>VocaDB</Company>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Description>Provides basic functionality for querying the Nico Nico Douga XML API</Description>
   </PropertyGroup>
 
 </Project>
