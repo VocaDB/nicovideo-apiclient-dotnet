@@ -1,5 +1,4 @@
 ﻿using System.Linq;
-using System.Threading.Tasks;
 
 namespace NicoApi {
 
@@ -52,17 +51,6 @@ namespace NicoApi {
 
 			return matchers.Any(m => m.IsMatch(url));
 
-		}
-
-		/// <summary>
-		/// Parses a video post by URL.
-		/// </summary>
-		/// <param name="url">NicoNicoDouga video URL, for example https://www.nicovideo.jp/watch/sm1234567 </param>
-		/// <returns>Result of the parse operation if successful. Cannot be null.</returns>
-		/// <exception cref="NicoApiException">If video data could not be loaded.</exception>
-		public async Task<VideoDataResult> ParseByUrlAsync(string url) {
-			var id = GetIdByUrl(url) ?? throw new NicoApiException("Not a valid NicoNicoDouga URL.");
-			return await NicoApiClient.GetTitleAPIAsync(id);
 		}
 
 	}
