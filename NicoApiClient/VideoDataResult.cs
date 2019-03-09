@@ -13,7 +13,7 @@ namespace NicoApi {
 			AuthorId = authorId;
 			ThumbUrl = thumbUrl;
 			Title = title;
-			Created = created;
+			UploadDate = created;
 			Views = views;
             Tags = tags;
 		}
@@ -27,11 +27,6 @@ namespace NicoApi {
 		/// User Id of the user who uploaded the video.
 		/// </summary>
 		public string AuthorId { get; }
-
-		/// <summary>
-		/// Date when this video was uploaded.
-		/// </summary>
-		public DateTimeOffset? Created { get; }
 
 		/// <summary>
 		/// Video length in seconds.
@@ -51,6 +46,11 @@ namespace NicoApi {
 		/// Cannot be null or empty.
 		/// </summary>
 		public string Title { get; }
+
+        /// <summary>
+        /// Date when this video was uploaded.
+        /// </summary>
+        public DateTimeOffset? UploadDate { get; }
 
 		/// <summary>
 		/// Number of views.

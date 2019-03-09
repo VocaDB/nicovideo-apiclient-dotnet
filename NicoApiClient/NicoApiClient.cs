@@ -49,7 +49,7 @@ namespace NicoApi {
 			
             if (nicoResponse.Status == "fail") {
                 var err = (nicoResponse.Error != null ? nicoResponse.Error.Description : "empty response");
-                throw new NicoApiException(string.Format("API response contained an error: {0}.", err));
+                throw new NicoApiException(string.Format("API response contained an error: {0}.", err), err);
             }
 
             var thumb = nicoResponse.Thumb;

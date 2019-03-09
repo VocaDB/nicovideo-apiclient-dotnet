@@ -7,9 +7,11 @@ using System.Xml.Serialization;
 
 namespace NicoApi {
 
-    internal static class XmlRequest {
+    public static class XmlRequest {
 
-        private static T GetXmlResponse<T>(Stream stream) {
+        public static T GetXmlResponse<T>(Stream stream) {
+            if (stream == null)
+                throw new ArgumentNullException(nameof(stream));
             var serializer = new XmlSerializer(typeof(T));
             return (T)serializer.Deserialize(stream);
         }
