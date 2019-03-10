@@ -7,7 +7,13 @@ Currently includes basic methods for NND URL parsing and downloading some video 
 
 Uses [Html Agility Pack](http://htmlagilitypack.codeplex.com/) for HTML parsing.
 
-## Example usage
+### Installing
+
+```
+PM> Install-Package NicoApiClient
+```
+
+### Usage
 
 ```csharp
 var response = await new NicoApiClient().ParseByUrlAsync("http://www.nicovideo.jp/watch/sm33779210");
