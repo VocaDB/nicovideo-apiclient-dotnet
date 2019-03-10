@@ -10,6 +10,8 @@
     <Company>VocaDB</Company>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Description>Provides basic functionality for querying the Nico Nico Douga XML API</Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
 </Project>

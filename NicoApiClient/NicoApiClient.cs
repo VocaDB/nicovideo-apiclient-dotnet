@@ -10,12 +10,17 @@ namespace NicoApi {
     /// </summary>
     public class NicoApiClient {
 
-        public NicoApiClient() { }
-
-        public NicoApiClient(HttpClient httpClient) {
+        /// <summary>
+        /// Initializes Nico API client.
+        /// </summary>
+        /// <param name="httpClient">HTTP client. Can be null, in which case new client is constructed. Note that HttpClient should be reused to optimize resources.</param>
+        /// <param name="deEntitize">Function for removing HTML entities. You can use HtmlAgilityPack for this. Optional - can be left null.</param>
+        public NicoApiClient(Func<string, string> deEntitize = null, HttpClient httpClient = null) {
             _httpClient = httpClient;
+            _deEntitize = deEntitize;
         }
 
+        private readonly Func<string, string> _deEntitize;
         private readonly HttpClient _httpClient;
 
         private HttpClient HttpClient => _httpClient ?? new HttpClient();
@@ -36,6 +41,11 @@ namespace NicoApi {
 
         }
 
+        /// <summary>
+        /// Parse length into seconds.
+        /// </summary>
+        /// <param name="lengthStr">Length from Nico response, for example 2:58.</param>
+        /// <returns>Length in seconds. Can be null if <paramref name="lengthStr"/> could not be parsed.</returns>
         public static int? ParseLength(string lengthStr) {
 
             if (string.IsNullOrEmpty(lengthStr))
@@ -66,7 +76,10 @@ namespace NicoApi {
             return await GetTitleAPIAsync(id);
         }
 
-        public static VideoDataResult ParseResponse(NicoResponse nicoResponse) {
+        public VideoDataResult ParseResponse(NicoResponse nicoResponse) {
+
+            if (nicoResponse == null)
+                throw new ArgumentNullException(nameof(nicoResponse));
 			
             if (nicoResponse.Status == "fail") {
                 var err = (nicoResponse.Error != null ? nicoResponse.Error.Description : "empty response");
@@ -88,7 +101,7 @@ namespace NicoApi {
 
         }
 
-        private static string DeEntitize(string htmlStr) => htmlStr;
+        private string DeEntitize(string htmlStr) => _deEntitize?.Invoke(htmlStr) ?? htmlStr;
 
         private static DateTimeOffset? ParseDate(string dateStr) => DateTimeOffset.TryParse(dateStr, out var date) ? (DateTimeOffset?)date : null;
 

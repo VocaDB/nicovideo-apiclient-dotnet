@@ -12,18 +12,18 @@ namespace NicoApi.Tests {
 	[TestClass]
 	public class NicoApiClientTests {
 
-        public static NicoResponse GetResponse(Stream stream) {
+        private static NicoResponse GetResponse(Stream stream) {
             using (stream) {
                 return XmlRequest.GetXmlResponse<NicoResponse>(stream);  
             }
         } 
 
+        private static VideoDataResult GetResult(Stream stream) => new NicoApiClient().ParseResponse(GetResponse(stream));
+
         [TestMethod]
         public void GetResponse_Ok() {
 			
-            var response = GetResponse(TestDataHelper.NicoResponseOk);
-
-            var result = NicoApiClient.ParseResponse(response);
+            var result = GetResult(TestDataHelper.NicoResponseOk);
 
             Assert.AreEqual("【初音ミク】１７：００【オリジナル曲】", result.Title, "Title");
             Assert.AreEqual("https://tn.smilevideo.jp/smile?i=12464004", result.ThumbUrl, "ThumbUrl");
@@ -43,7 +43,7 @@ namespace NicoApi.Tests {
             var response = GetResponse(TestDataHelper.NicoResponseError);
 
             try {
-                NicoApiClient.ParseResponse(response);
+                new NicoApiClient().ParseResponse(response);
                 Assert.Fail("Should throw");
             } catch (NicoApiException x) {
                 Assert.AreEqual("not found or invalid", x.NicoError, "NicoError");
