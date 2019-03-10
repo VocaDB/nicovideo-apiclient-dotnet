@@ -25,7 +25,7 @@ namespace NicoApi {
             var request = new HttpRequestMessage(HttpMethod.Get, uri);
 
             if (string.IsNullOrEmpty(userAgent)) {
-                request.Headers.UserAgent.Add(new ProductInfoHeaderValue("VocaDB", "1.0"));
+                request.Headers.UserAgent.Add(new ProductInfoHeaderValue("NicoApiClient", "1.0"));
             } else {
                 request.Headers.Add("User-Agent", userAgent);
             }
