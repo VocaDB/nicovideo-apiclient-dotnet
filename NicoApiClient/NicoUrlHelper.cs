@@ -1,6 +1,6 @@
-﻿using System.Linq;
+using System.Linq;
 
-namespace NicoApi {
+namespace VocaDb.NicoApi {
 
 	/// <summary>
 	/// Helper methods for parsing NicoNicoDouga URLs.

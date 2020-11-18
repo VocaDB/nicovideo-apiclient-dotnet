@@ -1,6 +1,6 @@
-﻿using System;
+using System;
 
-namespace NicoApi {
+namespace VocaDb.NicoApi {
 
 	/// <summary>
 	/// Result of NicoNicoDouga video data query request.

@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <AssemblyName>NicoApiClient</AssemblyName>
-    <RootNamespace>NicoApi</RootNamespace>
+    <RootNamespace>VocaDb.NicoApi</RootNamespace>
     <PackageProjectUrl>https://github.com/riipah/nicovideo-apiclient-dotnet</PackageProjectUrl>
     <RepositoryUrl>https://github.com/riipah/nicovideo-apiclient-dotnet</RepositoryUrl>
     <Authors>riipah</Authors>

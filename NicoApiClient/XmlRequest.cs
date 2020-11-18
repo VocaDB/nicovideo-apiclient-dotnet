@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -6,7 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 
-namespace NicoApi {
+namespace VocaDb.NicoApi {
 
     public static class XmlRequest {
 

@@ -1,9 +1,9 @@
-﻿using System;
+using System;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace NicoApi {
+namespace VocaDb.NicoApi {
 
     /// <summary>
     /// Various methods for the NicoNicoDouga video API.

@@ -1,7 +1,7 @@
-﻿using System;
+using System;
 using System.Runtime.Serialization;
 
-namespace NicoApi {
+namespace VocaDb.NicoApi {
 
 	/// <summary>
 	/// Exception thrown if an API request failed.

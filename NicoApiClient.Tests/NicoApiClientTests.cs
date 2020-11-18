@@ -1,10 +1,10 @@
-﻿using System;
+using System;
 using System.IO;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using NicoApi.Tests.TestData;
+using VocaDb.NicoApi.Tests.TestData;
 
-namespace NicoApi.Tests {
+namespace VocaDb.NicoApi.Tests {
 
 	/// <summary>
 	/// Unit tests for <see cref="NicoApiClient"/>.

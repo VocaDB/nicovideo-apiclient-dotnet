@@ -1,6 +1,6 @@
-﻿using System.Xml.Serialization;
+using System.Xml.Serialization;
 
-namespace NicoApi {
+namespace VocaDb.NicoApi {
 
     [XmlRoot(ElementName = "nicovideo_thumb_response", Namespace = "")]
     public class NicoResponse {

@@ -1,6 +1,6 @@
-﻿using System.Text.RegularExpressions;
+using System.Text.RegularExpressions;
 
-namespace NicoApi {
+namespace VocaDb.NicoApi {
 
     internal static class UrlHelper {
 

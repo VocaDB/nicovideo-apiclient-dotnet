@@ -1,13 +1,13 @@
-﻿using System.IO;
+using System.IO;
 
-namespace NicoApi.Tests.TestData {
+namespace VocaDb.NicoApi.Tests.TestData {
 
     public static class TestDataHelper {
 
         public static Stream GetFileStream(string fileName) {
 
             var asm = typeof(TestDataHelper).Assembly;
-            return asm.GetManifestResourceStream("NicoApi.Tests.TestData." + fileName);
+            return asm.GetManifestResourceStream($"{typeof(TestDataHelper).Namespace}.{fileName}");
 
         }
 

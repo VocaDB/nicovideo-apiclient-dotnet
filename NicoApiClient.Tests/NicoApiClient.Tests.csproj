@@ -6,7 +6,7 @@
     <ProjectGuid>{A467C95C-8493-45F7-A12E-761B4ECE309E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>NicoApi.Tests</RootNamespace>
+    <RootNamespace>VocaDb.NicoApi.Tests</RootNamespace>
     <AssemblyName>NicoApiClient.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

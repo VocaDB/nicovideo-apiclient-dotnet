@@ -1,7 +1,7 @@
-﻿using System;
+using System;
 using System.Text.RegularExpressions;
 
-namespace NicoApi {
+namespace VocaDb.NicoApi {
 
 	internal class RegexLinkMatcher {
 
