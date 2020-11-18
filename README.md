@@ -10,7 +10,7 @@ Uses [Html Agility Pack](http://htmlagilitypack.codeplex.com/) for HTML parsing.
 ### Installing
 
 ```
-PM> Install-Package NicoApiClient
+PM> Install-Package VocaDb.NicoApiClient
 ```
 
 ### Usage
